@@ -1,0 +1,31 @@
+__ABOUT PARALLAX__
+Bài 1: Ứng dụng method screen.blit(surface, (position_x, positiony) để sắp xếp các parallax asset theo bố cục hợp lý và xây dựng một mẫu background đẹp nhất. 
+
+_________________________________________________________________
+Hướng dẫn thực hiện:
+
+Tạo một list background
+
+background = []
+
+Sau đó khai báo để load các ảnh vào bằng pygame.image.load("đường dẫn và tên file")
+
+bg1 = pygame.image.load('asset/bg1.png').convert_alpha()
+
+...
+
+Dùng method extend để đưa tất cả các ảnh vừa được load vào list background
+
+background.extend[(bg1, bg2,...]
+
+Sau khi đã thực hiện đủ các bước trên, ta bắt đầu dùng method screen.blit(surface, (position_x, position_y)) để màn hình về đúng vị trí mình muốn.
+
+screen.blit(background[đưa vào đây number phụ thuộc theo số thứ tự mà ảnh đứng trong list], (x, y)) vì ảnh là background đã có sẵn đúng độ phân giải so với màn hình nên ta chỉ cần hoàn thành rồi đưa chúng về vị trí (0, 0) cũng chính là căn chỉnh ảnh về vị trí góc trên bên trái màn hình để đưa parallax về đúng vị trí trung tâm.
+
+
+_________________________________________________________________
+Gợi ý cách giải nâng cao:
+
+Sử dụng hàm lặp for, đổi tên lại các file parallax sau đó format số thứ tự vào và dùng append trong for để đỡ cách làm thủ công và hoàn thành công đoạn chạy nhanh hơn. Tại bước đổi tên, ta cũng dễ dàng sắp xếp được các layer parallax theo thứ tự từ dưới lên trên.
+
+Sau khi có background, ta cũng dùng hàm for và dùng cách tương tự để screen.blit hiện lên toàn bộ parallax.
